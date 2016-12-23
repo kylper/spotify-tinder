@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fQl-lB-GvP">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Spotify_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3T-35-DGB">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Browse" id="3eG-gw-hFe">
+                                        <barButtonItem key="leftBarButtonItem" title="Settings" id="5QA-E0-m8x">
+                                            <connections>
+                                                <segue destination="bqI-wf-KMP" kind="show" id="IIs-K6-Yus"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="My Clothes" id="Iqw-1p-f8N">
+                                            <connections>
+                                                <segue destination="lbZ-fS-WCw" kind="show" id="BBD-mL-jnJ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="S3T-35-DGB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2K9-x8-74j"/>
+                            <constraint firstItem="S3T-35-DGB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5h0-xf-6IH"/>
+                            <constraint firstAttribute="trailing" secondItem="S3T-35-DGB" secondAttribute="trailing" id="Emp-zz-dOs"/>
+                            <constraint firstItem="S3T-35-DGB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="lyE-TN-cHx"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="724" y="-135"/>
+        </scene>
+        <!--Song Table-->
+        <scene sceneID="9rQ-ok-uce">
+            <objects>
+                <viewController id="lbZ-fS-WCw" customClass="SongTable" customModule="Spotify_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DtZ-Ij-3Fc"/>
+                        <viewControllerLayoutGuide type="bottom" id="nbp-Ku-shw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mMZ-i3-UUJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6e-9g-gcf">
+                                <rect key="frame" x="0.0" y="21" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="My Clothes" id="ELa-yN-ZwQ">
+                                        <barButtonItem key="leftBarButtonItem" title="Browse" id="JgJ-CP-nBU">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="fm9-gV-iBL"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="WgE-gB-cOU">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8GO-vh-WWL">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="od2-J3-jJK">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="od2-J3-jJK" id="CeN-xH-I50">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lbZ-fS-WCw" id="eyA-Jz-fYw"/>
+                                    <outlet property="delegate" destination="lbZ-fS-WCw" id="nGL-wk-aEt"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WgE-gB-cOU" firstAttribute="centerX" secondItem="mMZ-i3-UUJ" secondAttribute="centerX" id="8gf-sX-pbu"/>
+                            <constraint firstItem="8GO-vh-WWL" firstAttribute="top" secondItem="WgE-gB-cOU" secondAttribute="bottom" id="BZr-tY-Bgg"/>
+                            <constraint firstItem="WgE-gB-cOU" firstAttribute="leading" secondItem="mMZ-i3-UUJ" secondAttribute="leading" id="BaY-4t-jTx"/>
+                            <constraint firstItem="u6e-9g-gcf" firstAttribute="centerX" secondItem="mMZ-i3-UUJ" secondAttribute="centerX" id="C3V-Cd-rzQ"/>
+                            <constraint firstItem="u6e-9g-gcf" firstAttribute="top" secondItem="DtZ-Ij-3Fc" secondAttribute="bottom" constant="1" id="LzG-iA-5nJ"/>
+                            <constraint firstAttribute="trailing" secondItem="8GO-vh-WWL" secondAttribute="trailing" id="Mc3-D5-Khb"/>
+                            <constraint firstAttribute="trailing" secondItem="u6e-9g-gcf" secondAttribute="trailing" id="MhM-Y3-x7h"/>
+                            <constraint firstItem="8GO-vh-WWL" firstAttribute="centerX" secondItem="mMZ-i3-UUJ" secondAttribute="centerX" id="YMs-JY-vjG"/>
+                            <constraint firstAttribute="trailing" secondItem="WgE-gB-cOU" secondAttribute="trailing" id="b2R-Cj-axS"/>
+                            <constraint firstItem="u6e-9g-gcf" firstAttribute="leading" secondItem="mMZ-i3-UUJ" secondAttribute="leading" id="jjo-xl-NxY"/>
+                            <constraint firstItem="nbp-Ku-shw" firstAttribute="top" secondItem="8GO-vh-WWL" secondAttribute="bottom" id="k4t-sA-ANT"/>
+                            <constraint firstItem="8GO-vh-WWL" firstAttribute="leading" secondItem="mMZ-i3-UUJ" secondAttribute="leading" id="vyb-jB-Nlq"/>
+                            <constraint firstItem="WgE-gB-cOU" firstAttribute="top" secondItem="DtZ-Ij-3Fc" secondAttribute="bottom" constant="44" id="yiG-qk-Yau"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yFs-90-sYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1623" y="-135"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="MZ2-9I-Z3Y">
+            <objects>
+                <viewController storyboardIdentifier="settingscontroller" id="bqI-wf-KMP" customClass="SettingsViewController" customModule="Spotify_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SOP-1r-DTf"/>
+                        <viewControllerLayoutGuide type="bottom" id="vmy-zi-aTj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0LK-GH-7vJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zat-Cu-hBh">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Settings" id="KDr-e9-4h3">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="mNc-Fg-VLN">
+                                            <connections>
+                                                <action selector="logOut:" destination="bqI-wf-KMP" id="0aw-Ze-mjm"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Browse" id="hln-Xd-ag5">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="z0X-Ri-1h3"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zat-Cu-hBh" firstAttribute="leading" secondItem="0LK-GH-7vJ" secondAttribute="leading" id="DHs-Gp-xNE"/>
+                            <constraint firstItem="Zat-Cu-hBh" firstAttribute="centerX" secondItem="0LK-GH-7vJ" secondAttribute="centerX" id="Kqm-ra-Pxi"/>
+                            <constraint firstItem="Zat-Cu-hBh" firstAttribute="top" secondItem="SOP-1r-DTf" secondAttribute="bottom" id="Zir-zo-zPC"/>
+                            <constraint firstAttribute="trailing" secondItem="Zat-Cu-hBh" secondAttribute="trailing" id="adr-On-myu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zo8-Yf-dzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-174" y="-858"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="gF2-in-tvx">
+            <objects>
+                <viewController storyboardIdentifier="loginController" id="fQl-lB-GvP" customClass="LoginViewController" customModule="Spotify_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QmJ-2y-t7e"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jkw-DQ-G6h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Mu-ET-cHW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="loginToSwipeSegue" id="WKv-bg-DMQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kHj-Gj-4ad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-167" y="-135"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="z0X-Ri-1h3"/>
+    </inferredMetricsTieBreakers>
+</document>
