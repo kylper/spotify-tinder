@@ -29,22 +29,44 @@ class ViewController: UIViewController {
     var cards: [String: CardSaveType] = ["Kyle" : CardSaveType.unseen, "Ethan" : CardSaveType.unseen, "Bob" : CardSaveType.unseen, "Joe" : CardSaveType.unseen, "Kate" : CardSaveType.unseen, "Dave": CardSaveType.unseen, "Derek": CardSaveType.unseen, "Sara": CardSaveType.unseen] */
     
     
+    
     var acceptedSongs: [Song] = []
     var rejectedSongs: [Song] = []
-    
+    var currentUser: User = User.init(uid: "", email: "")
     
     // move this
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //var user = FIRAuth.auth()?.currentUser;
-        //changeRequest?.
+        let user = FIRAuth.auth()?.currentUser;
+        
+        //print("myID", user?.uid)
+        
+        //let currentUser = userRef.child((user?.uid)!)
+        //let message = currentUser.value(forKey: "email")
         
         
+        /*
+        let user = FIRAuth.auth()?.currentUser;
+        userRef.queryOrdered(byChild: "uid").queryEqual(toValue: user?.uid)
+            .observe(.value, with: { snapshot in
+                
+                if ( snapshot.value is NSNull ) {
+                    print("not found, error this account should have been created")
+                    
+                    
+                } else {
+                    print("hooray")
+                    print(snapshot.value!)
+                    self.currentUser = snapshot.value! as! User
+                }
+            })
         
         
-        
+        print("herenow: ", currentUser.email)
+        print("herenow: ", currentUser.uid)*/
+
         
         allSongsRef.observe(.value, with: { snapshot in
             var newItems: [Song] = []
@@ -59,27 +81,28 @@ class ViewController: UIViewController {
             print("hereagain ",newItems.count)
             self.songCards = newItems
             
+            
         
         
+            
+            // picks a random song from all the songs (it might already be a seen song)
+            let randomIndex = Int(arc4random_uniform(UInt32(self.songCards.count)))
+            print("here: ",  self.songCards.count)
+            let songTitle: String = self.songCards[randomIndex].title
         
-        // picks a random song from all the songs (it might already be a seen song)
-        let randomIndex = Int(arc4random_uniform(UInt32(self.songCards.count)))
-        print("here: ",  self.songCards.count)
-        let songTitle: String = self.songCards[randomIndex].title
         
-        
-        let label = UILabel(frame: CGRect(x: self.view.bounds.width / 2 - 100, y: self.view.bounds.height/2 - 50, width: 200, height: 100))
+            let label = UILabel(frame: CGRect(x: self.view.bounds.width / 2 - 100, y: self.view.bounds.height/2 - 50, width: 200, height: 100))
 
-        label.text = songTitle
-        label.textAlignment = NSTextAlignment.center
-        self.view.addSubview(label)
+            label.text = songTitle
+            label.textAlignment = NSTextAlignment.center
+            self.view.addSubview(label)
         
-        let gesture = UIPanGestureRecognizer(target: self, action: #selector(ViewController.wasDragged(_:)))
-        label.addGestureRecognizer(gesture)
+            let gesture = UIPanGestureRecognizer(target: self, action: #selector(ViewController.wasDragged(_:)))
+            label.addGestureRecognizer(gesture)
         
-        label.isUserInteractionEnabled = true
+            label.isUserInteractionEnabled = true
         
-            })
+        })
     }
     
     func wasDragged(_ gesture: UIPanGestureRecognizer) {

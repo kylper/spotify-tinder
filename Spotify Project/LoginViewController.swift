@@ -13,12 +13,18 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
+import UIKit
+import FBSDKCoreKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let loginButton = FBSDKLoginButton()
         view.addSubview(loginButton)
         //frame's are obselete, please use constraints instead because its 2016 after all
@@ -42,7 +48,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     func handleCustomFBLogin() {
         FBSDKLoginManager().logIn(withReadPermissions: ["email"], from: self) { (result, err) in
             if err != nil {
-                print("Custom FB Login failed:", err)
+                print("Custom FB Login failed:", err!)
                 return
             }
            
@@ -85,6 +91,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             
             
+            
             self.createUser(user: user!)
             
             print("Successfully logged in with our user: ", user ?? "")
@@ -121,18 +128,22 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         let userRef = FIRDatabase.database().reference(withPath: "user")
 
         print("mafuka")
-        let newUser: User = User.init(uid: user.uid, email: user.email!)
         
-    
-        userRef.child(user.uid).setValue(
-            [
-            "acceptedSongs": [],
-            "rejectedSongs": []
-            ])
-        }
-
-        
-    
+        userRef.queryOrdered(byChild: "uid").queryEqual(toValue: user.uid)
+            .observe(.value, with: { snapshot in
+                
+                if ( snapshot.value is NSNull ) {
+                    print("not found)")
+                    let userItem: User = User.init(uid: user.uid, email: user.email!)
+                    let userItemRef = userRef.child((user.uid))
+                    userItemRef.setValue(userItem.toAnyObject())
+                    
+                } else {
+                    print("hooray")
+                    print(snapshot.value!)
+                }
+        })
+    }
     
 }
 

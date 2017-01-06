@@ -167,7 +167,7 @@
         <!--Login View Controller-->
         <scene sceneID="gF2-in-tvx">
             <objects>
-                <viewController storyboardIdentifier="loginController" id="fQl-lB-GvP" customClass="LoginViewController" customModule="Spotify_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="firebaseLoginViewController" id="fQl-lB-GvP" customClass="LoginViewController" customModule="Spotify_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QmJ-2y-t7e"/>
                         <viewControllerLayoutGuide type="bottom" id="Jkw-DQ-G6h"/>
@@ -183,10 +183,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kHj-Gj-4ad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-167" y="-135"/>
+            <point key="canvasLocation" x="-257" y="30"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="z0X-Ri-1h3"/>
+        <segue reference="WKv-bg-DMQ"/>
     </inferredMetricsTieBreakers>
 </document>

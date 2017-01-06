@@ -27,18 +27,24 @@ class SettingsViewController: UIViewController {
     
     @IBAction func logOut(_ sender: Any) {
         
+        
+        
         print("ok")
         let firebaseAuth = FIRAuth.auth()
-        //let manager = FBSDKLoginManager()
         do {
             try firebaseAuth?.signOut()
-            //print("Successfully signed out in with our user: ", user ?? "")
-//            manager.logOut()
-            
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+        }
+        
+        catch let signOutError as NSError {
+            print("Could not sign out")
         }
 
+        
+        if (FIRAuth.auth()?.currentUser == nil) {
+            print("dafuk")
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "firebaseLoginViewController")
+            self.navigationController?.present(vc!, animated: true, completion: nil)
+        }
     }
     
     

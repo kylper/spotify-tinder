@@ -75,4 +75,15 @@ struct User {
         self.rejectedSongs = snapshotValue["rejectedSongs"] as! [Song]
         ref = snapshot.ref
     }
+    
+    
+    func toAnyObject() -> Any {
+        return [
+            "uid": uid,
+            "email": email,
+            "acceptedSongs": acceptedSongs,
+            "rejectedSongs": rejectedSongs
+
+        ]
+    }
 }
